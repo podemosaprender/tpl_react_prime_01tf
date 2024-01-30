@@ -121,3 +121,8 @@ We can call a function to read data from a Google spreadsheet, or asset prices. 
 * `whatTheyBought= askUserWhatTheyWantToBuy(catalog)`
 
 XXX:add easy to use functions and examples.
+
+### Practical function and data structure patterns
+
+XXX: map, filter, Object.keys, etc. in the console, then with react jsx.
+XXX: Promises, async/await
