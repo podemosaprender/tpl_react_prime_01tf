@@ -7,6 +7,7 @@ import {Button} from 'primereact/button' //PA: from PrimeReact
 import {MiCalendar} from './components/micalendar' //PA: copied the example, put the code in this file
 import {MiForm} from './components/miform';
 import {SaludoUsuaria} from './components/saludo_usuaria';
+import {Saludo} from './components/saludo';
 
 export function App() {
   const [count, setCount] = useState(0)
@@ -20,6 +21,8 @@ export function App() {
 			<MiCalendar />
 			<MiForm />
 			<SaludoUsuaria />
+			<Saludo mensaje="a mi mama," />
+			<Saludo mensaje="y a todos los que me estan mirando!" />
     </>
   )
 }
