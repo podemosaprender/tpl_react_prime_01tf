@@ -112,4 +112,12 @@ This powerful pattern let's us write our programs in small parts,
 * A few watch for changes in the state, like `SaludoUsuaria` that just gets the name and calls the pure function component `Saludo`.
 * Fewer less *send messages* to our program so we can apply our rules and define a new state.
 
+### That's how the world functions
 
+We can call a function to read data from a Google spreadsheet, or asset prices. We can show a list of products and ask the user which they want to buy. You can think of all of this as functions:
+
+* `currentSpreadsheetData= fetch('http://google.com/horrible_very_long_url', now())`
+* `currentBTCprice= fetch('http://binance.com/BTC/...')`
+* `whatTheyBought= askUserWhatTheyWantToBuy(catalog)`
+
+XXX:add easy to use functions and examples.
