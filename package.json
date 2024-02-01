@@ -11,7 +11,7 @@
     "preview": "vite preview"
   },
 	"engines": {
-    "node": "21.x"
+    "node": "16.x"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.1.0",
