@@ -1,30 +1,26 @@
 //INFO: main App entry point
 
 import { useState } from 'react'
+import {memoriaLeerCon, memoriaLectorPara} from './rte/es';
 import './App.css'
 
-import {Button} from 'primereact/button' //PA: from PrimeReact
-import {MiCalendar} from './components/micalendar' //PA: copied the example, put the code in this file
-import {MiForm} from './components/miform';
-import {SaludoUsuaria} from './components/saludo_usuaria';
-import {Saludo} from './components/saludo';
+import { PaginaInicio } from './pages/inicio';
+import { PaginaAPIPlanilla } from './pages/api-planilla';
+
+const hashApagina= {
+	'#planilla': PaginaAPIPlanilla,
+}
+
+const memoriaLeerHashEnUrl= memoriaLectorPara(["navigation_location{hash"]); //U: leer de Redux, debe estar fuera del componente! //XXX:mover a RTE para que sea mas facil, esconde Redux
 
 export function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
-      <h1>Hola!</h1>
-      <div>
-        <Button label={"count is "+count} onClick={() => setCount((count) => count + 1)} />
-      </div>
-			<MiCalendar />
-			<MiForm />
-			<SaludoUsuaria />
-			<Saludo mensaje="a mi mama," />
-			<Saludo mensaje="y a todos los que me estan mirando!" />
-    </>
-  )
+	const [hashEnUrl]= memoriaLeerCon( memoriaLeerHashEnUrl );
+	const QuePagina= hashApagina[hashEnUrl] || PaginaInicio; //A: si tengo para ese nombre en diccionario uso, sino PaginaInicio
+	return (
+		<>
+			<QuePagina />
+		</>
+	)
 }
 
 
