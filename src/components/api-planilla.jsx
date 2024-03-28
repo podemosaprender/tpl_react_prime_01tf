@@ -6,9 +6,11 @@ import {Button} from 'primereact/button';
 import {InputText} from 'primereact/inputtext';
 import {JsonPre} from '../rte/ui/components/JsonPre';
 
-export function PaginaAPIPlanilla() {
-	const [urlPlanilla, setUrlPlanilla, cuandoCambiaUrlPlanilla]= useEstadoYCambio('')
-	const [quiereVerDatos, setQuiereVerDatos]= useState(false);
+export function MostrarDatosAPIPlanilla({template, urlPlanillaInicial}) {
+	const TemplateDato= template || JsonPre; 
+
+	const [urlPlanilla, setUrlPlanilla, cuandoCambiaUrlPlanilla]= useEstadoYCambio(urlPlanillaInicial || '')
+	const [quiereVerDatos, setQuiereVerDatos]= useState(urlPlanillaInicial!='');
 	const [datosPlanilla, setDatosPlanilla]= useState();
 
 	useEffect( () => {
@@ -29,7 +31,7 @@ export function PaginaAPIPlanilla() {
 		if (datosPlanilla!=null) {
 			return (<>
 				<h1>Datos Planilla</h1>
-				{ datosPlanilla.map( dict => <JsonPre datos={dict} /> ) }
+				{ datosPlanilla.map( (dict, idx) => <TemplateDato key={idx} datos={dict} /> ) }
 				<div><Button onClick={ () => { setQuiereVerDatos(false) } }>Volver</Button></div>
 			</>)
 		} else {

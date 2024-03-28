@@ -5,10 +5,10 @@ import {memoriaLeerCon, memoriaLectorPara} from './rte/es';
 import './App.css'
 
 import { PaginaInicio } from './pages/inicio';
-import { PaginaAPIPlanilla } from './pages/api-planilla';
+import { PaginaMiPlanilla } from './pages/mi-planilla';
 
 const hashApagina= {
-	'#planilla': PaginaAPIPlanilla,
+	'#planilla': PaginaMiPlanilla,
 }
 
 const memoriaLeerHashEnUrl= memoriaLectorPara(["navigation_location{hash"]); //U: leer de Redux, debe estar fuera del componente! //XXX:mover a RTE para que sea mas facil, esconde Redux
