@@ -74,7 +74,7 @@ Let's
 
 ### Fill in the blanks: what *function* does it have, how does it *function*
 
-**Goal:** avoid repeating code you'll have to read and maintain later, express what you **want** anywhere and **how** to show it in a single file and **function**.
+**Goal:** avoid repeating code you'll have to read and maintain later, express **what** you want anywhere and **how** to show it in a single file and **function**.
 
 e.g. you may want a very persuasive "buy" button with the price. The problem is nobody knows what looks persuasive until you show it to your clients and see their reaction. So you can create a `<PersuasiveBuyButton price="9.99" />` and use it everywhere, because you know **what** you want from the get go. You can create `components/persuasive_button.jsx` with the first *implementation* using just a regular button, perhaps bigger or with some color because you don't know **how** to make it persuasive yet. Then you can change just the implementation in `components/persuasive_button.jsx` and check how it looks in every place you used it, no other changes required.
 
