@@ -98,7 +98,7 @@ export const mfetch= async (url, data, method) => {
 }
 
 export const mfetch_tsv= async (url, data, method) => {
-	const txt= await fetch("https://corsproxy.io/?"+url).then(r=> r.text()); //XXX:usar mfetch, generalizar
+	const txt= await fetch("https://corsproxy.io/?"+encodeURIComponent(url)).then(r=> r.text()); //XXX:usar mfetch, generalizar
 	const lineas= txt.split(/[\r\n]+/).map(l => l.split(/\t/));
 	const nombre_cols= lineas[0];
 	const diccionarios= lineas.slice(1).map(l => { const r={}; nombre_cols.forEach( (t,i) => (r[t]= l[i]) ); return r});

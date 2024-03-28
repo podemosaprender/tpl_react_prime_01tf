@@ -12,6 +12,7 @@ export function MostrarDatosAPIPlanilla({template, urlPlanillaInicial}) {
 	const [urlPlanilla, setUrlPlanilla, cuandoCambiaUrlPlanilla]= useEstadoYCambio(urlPlanillaInicial || '')
 	const [quiereVerDatos, setQuiereVerDatos]= useState(urlPlanillaInicial!='');
 	const [datosPlanilla, setDatosPlanilla]= useState();
+	const [quiereRefrescar, setQuiereRefrescar]= useState(0);
 
 	useEffect( () => {
 		if (quiereVerDatos && urlPlanilla!='') {
@@ -19,7 +20,7 @@ export function MostrarDatosAPIPlanilla({template, urlPlanillaInicial}) {
 		} else {
 			setDatosPlanilla( null )
 		}
-	}, [urlPlanilla, quiereVerDatos])
+	}, [urlPlanilla, quiereVerDatos, quiereRefrescar])
 
 	if (urlPlanilla=='' || !quiereVerDatos) { //A: todavia no se la url o la quiere cambiar, pregunto
 		return (<>
@@ -32,12 +33,17 @@ export function MostrarDatosAPIPlanilla({template, urlPlanillaInicial}) {
 			return (<>
 				<h1>Datos Planilla</h1>
 				{ datosPlanilla.map( (dict, idx) => <TemplateDato key={idx} datos={dict} /> ) }
-				<div><Button onClick={ () => { setQuiereVerDatos(false) } }>Volver</Button></div>
+				<div className='m-2'>
+					<Button onClick={ () => { setQuiereVerDatos(false) } }>Volver</Button>
+					<Button onClick={ () => { setQuiereRefrescar(quiereRefrescar+1) } }>Refrescar</Button>
+				</div>
 			</>)
 		} else {
 			return (<>
 				<h1>Aún no tengo datos planilla</h1>
-				<div><Button onClick={ () => { setQuiereVerDatos(false) } }>Volver</Button></div>
+				<div>
+					<Button onClick={ () => { setQuiereVerDatos(false) } }>Volver</Button>
+				</div>
 			</>)
 		}
 	}
