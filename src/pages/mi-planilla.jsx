@@ -6,7 +6,7 @@ const UrlMiPlanilla= 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSn85Am7uq
 
 function MostrarUnProducto({datos}) { //U: adaptar a las columnas de tu planilla y como queres mostrar
 	return (<div>
-		{datos.Producto}: ${datos.Precio}
+		{datos.Producto}: ${datos.Precio} { datos.EsOferta=='si' ? 'OFERTON' : ''}
 	</div>)
 }
 

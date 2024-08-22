@@ -6,8 +6,10 @@ import './App.css'
 
 import { PaginaInicio } from './pages/inicio';
 import { PaginaMiPlanilla } from './pages/mi-planilla';
+import { ObjectDetection } from './components/ObjectDetection';
 
 const hashApagina= {
+	'#od': ObjectDetection,
 	'#planilla': PaginaMiPlanilla,
 }
 
